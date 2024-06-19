@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="main-content">
+    <!--== Start My Account Area Wrapper ==-->
+    <section class="account-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 m-auto">
+            <div class="section-title text-center">
+              <h2 class="title">Add New Book</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="register-form-content">
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="title">Title <span class="required">*</span></label>
+                      {{form.title}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="author">Author <span class="required">*</span></label>
+                      {{form.author}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="description">Description<span class="required">*</span></label>
+                      {{form.description}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="quantity">Quantity<span class="required">*</span></label>
+                      {{form.quantity}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="price">Price <span class="required">*</span></label>
+                      {{form.price}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="image">Book's Image<span class="">*</span></label>
+                      {{form.image}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="genre">Genre<span class="required">*</span></label>
+                      {{form.genre}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="category">Category<span class="required">*</span></label>
+                      {{form.category}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="is_bestseller">Is Bestseller<span class="required">*</span></label>
+                      {{form.is_bestseller}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="is_new">Is New<span class="required">*</span></label>
+                      {{form.is_new}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group mb--0">
+                      <button type="submit" class="btn-register"><a href="{% url 'sellers:my_books' %}">Add</a></button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End My Account Area Wrapper ==-->
+  </main>
+{% endblock %}

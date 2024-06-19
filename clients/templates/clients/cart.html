@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    
+
+    <!--== Start Blog Area Wrapper ==-->
+    <section class="shopping-cart-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="shopping-cart-form table-responsive">
+                <form action="#" method="post">
+                  <table class="table text-center">
+                    <thead>
+                      <tr>
+                        <th class="product-remove">&nbsp;</th>
+                        <th class="product-thumb">&nbsp;</th>
+                        <th class="product-name">Product</th>
+                        <th class="product-price">Price</th>
+                        <th class="product-quantity">Quantity</th>
+                        <th class="product-subtotal">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <form action="" method="post">
+                        {% csrf_token %}
+                      {% for book in books %}
+                      <tr class="cart-product-item">
+                        <td class="product-remove">
+                          <a href="{% url 'clients:delete' book.pk %}"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                        <td class="product-thumb">
+                          <a href="{% url 'clients:book_detail' book.pk %}">
+                            <img src="{{book.book.image.url}}" width="90" height="110" alt="Image-HasTech">
+                          </a>
+                        </td>
+                        <td class="product-name">
+                          <h4 class="title"><a href="{% url 'clients:book_detail' book.book.pk %}">{{book.book.title}}</a></h4>
+                        </td>
+                        <td class="product-price">
+                          <span class="price">${{book.book.price}}</span>
+                        </td>
+                        <td class="product-quantity">
+                          
+                            <span class="quantity">{{book.quantity}} p.c</span>
+                          
+                        </td>
+                        <td class="product-subtotal">
+                          <span class="price">${{book.book.total_price}}</span>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                      <tr class="actions">
+                        <td class="border-0" colspan="6">
+                          <button type="submit" class="order">Order</button>
+                          <a href="{% url 'clients:store' %}" class="btn-theme btn-flat">Continue Shopping</a>
+                        </td>
+                      </tr>
+                    </form>
+                    </tbody>
+                  </table>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--== End Blog Area Wrapper ==-->
+    </main>
+  
+   
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="main-content">
+    <!--== Start My Account Area Wrapper ==-->
+    <section class="account-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 m-auto">
+            <div class="section-title text-center">
+              <h2 class="title">Edit Genre</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="register-form-content">
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="name">Name <span class="required">*</span></label>
+                      {{form.name}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="description">Description <span class="required">*</span></label>
+                      {{form.description}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="image">Image <span class="required">*</span></label>
+                      {{form.image}}
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group mb--0">
+                      <button type="submit" class="btn-register" ><a href="{% url 'admins:book_categories' %}">Edit</a></button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End My Account Area Wrapper ==-->
+  </main>
+{% endblock %}

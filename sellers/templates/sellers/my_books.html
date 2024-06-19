@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="main-content">
+    <!--== Start Page Header Area Wrapper ==-->
+    <div class="page-header-area" data-bg-img="{% static 'assets/img/my_books_bg.png' %}">
+      <div class="container pt--0 pb--0">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-header-content">
+              <h2 class="title" data-aos="fade-down" data-aos-duration="1000">My Books</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== End Page Header Area Wrapper ==-->
+
+    <!--== Start Product Area Wrapper ==-->
+    <section class="product-area product-default-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="shop-top-bar">
+              <div class="shop-top-left">
+                <p class="pagination-line"><a href="shop.html">{{ page_obj.paginator.count }}</a> Products Found</p>
+              </div>
+              <div class="shop-top-center">
+                <nav class="product-nav">
+                  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-grid-tab" data-bs-toggle="tab" data-bs-target="#nav-grid" type="button" role="tab" aria-controls="nav-grid" aria-selected="true"><i class="fa fa-th"></i></button>
+                    <button class="nav-link" id="nav-list-tab" data-bs-toggle="tab" data-bs-target="#nav-list" type="button" role="tab" aria-controls="nav-list" aria-selected="false"><i class="fa fa-list"></i></button>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-grid" role="tabpanel" aria-labelledby="nav-grid-tab">
+                <div class="row">
+                  {% for book in page_obj %}
+                  <div class="col-sm-6 col-lg-4">
+                    <!--== Start Product Item ==-->
+                    <div class="product-item">
+                      <div class="inner-content">
+                        <div class="product-thumb">
+                          <a href="{% url 'sellers:edit_book' book.pk %}">
+                            <img src="{{ book.image.url }}" width="270" height="274" alt="Image-HasTech">
+                          </a>
+                          {% if book.is_bestseller %}
+                          <div class="product-flag">
+                            <ul>
+                              <li class="discount">Bestseller</li>
+                            </ul>
+                          </div>
+                          {% endif %}
+                        </div>
+                        <div class="product-info">
+                          <div class="category">
+                            <ul>
+                              <li>{{ book.author }}</li>
+                            </ul>
+                          </div>
+                          <h4 class="title">{{ book.title }}</h4>
+                          <div class="prices">
+                            <span class="price">${{ book.price }}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <a class="btn-theme btn-sm" href="{% url 'sellers:delete_book' book.pk %}">Delete Book</a>
+                    </div>
+                    <!--== End Product Item ==-->
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
+                <div class="row">
+                  {% for book in page_obj %}
+                  <div class="col-md-12">
+                    <!--== Start Product Item ==-->
+                    <div class="product-item product-list-item">
+                      <div class="inner-content">
+                        <div class="product-thumb">
+                          <a href="{% url 'sellers:edit_book' book.pk %}">
+                            <img src="{{ book.image.url }}" width="322" height="360" alt="Image-HasTech">
+                          </a>
+                          {% if book.is_bestseller %}
+                          <div class="product-flag">
+                            <ul>
+                              <li class="discount">Bestseller</li>
+                            </ul>
+                          </div>
+                          {% endif %}
+                        </div>
+                        <div class="product-info">
+                          <div class="category">
+                            <ul>
+                              <li>{{ book.author }}</li>
+                            </ul>
+                          </div>
+                          <h4 class="title">{{ book.title }}</h4>
+                          <div class="prices">
+                            <span class="price">${{ book.price }}</span>
+                          </div>
+                          <p>{{ book.description }}</p>
+                          <a class="btn-theme btn-sm" href="{% url 'sellers:edit_book' book.pk %}">Edit Book</a>
+                          <a class="btn-theme btn-sm" href="{% url 'sellers:delete_book' book.pk %}">Edit Book</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!--== End Product Item ==-->
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="pagination-items">
+              <ul class="pagination justify-content-end mb--0">
+                <li><a href="{% url 'sellers:add_book' %}" style="width: 150px;">Add New Book</a></li>
+              </ul>
+              <ul class="pagination justify-content-center mb--0">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}"><<</a></li>
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                <li><a class="active" href="?page={{ num }}">{{ num }}</a></li>
+                {% else %}
+                <li><a href="?page={{ num }}">{{ num }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">>></a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Product Area Wrapper ==-->
+  </main>
+    
+{% endblock %}
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas id quisquam quibusdam vitae excepturi. Aliquam et officiis reprehenderit ratione perspiciatis nihil sequi deleniti, voluptatem, dolorum quasi esse ex nostrum eius.

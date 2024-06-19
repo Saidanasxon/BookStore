@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="main-content">
+    <!--== Start My Account Area Wrapper ==-->
+    <section class="account-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 m-auto">
+            <div class="section-title text-center">
+              <h2 class="title">Edit Seller</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="register-form-content">
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="single-input-item">
+                          <label for="first-name" class="required">First Name</label>
+                          {{form.first_name}}
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="single-input-item">
+                          <label for="last-name" class="required">Last Name</label>
+                          {{form.last_name}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="single-input-item">
+                      <label for="display-name" class="required">Username</label>
+                      {{form.username}}
+                    </div>
+                    <div class="single-input-item">
+                      <label for="email" class="required">Email Addres</label>
+                      {{form.email}}
+                    </div>
+                    <div class="single-input-item">
+                      <label for="email" class="required">Phone Number</label>
+                      {{form.phone_number}}
+                    </div>
+                    <div class="single-input-item">
+                      <label for="address" class="required">Address</label>
+                      {{form.address}}
+                    </div>
+                    <div class="single-input-item">
+                      <label for="email" class="required">Profile Image</label>
+                      {{form.image}}
+                    </div>
+                  <div class="col-12">
+                    <div class="form-group mb--0">
+                      <button type="submit" class="btn-register" ><a href="{% url 'users:index' %}">Edit</a></button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End My Account Area Wrapper ==-->
+  </main>
+{% endblock %}

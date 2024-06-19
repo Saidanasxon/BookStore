@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container d-flex justify-content-center" style="margin-top: 50px; margin-bottom: 50px;">
+  <table class="table align-middle bg-white" >
+      <thead class="bg-light">
+        <tr>
+          <th>Name </th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for category in categories %}
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <p class="fw-bold mb-1">{{category.name}}</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{category.description}}</p>
+          </td>
+          <td>
+            <button type="button" class="btn btn-outline-primary">
+              <a href="{% url 'admins:edit_category' category.pk %}">Edit</a>
+            </button>
+            <button type="button" class="btn btn-danger">
+              <a href="{% url 'admins:delete_category' category.pk %}">Delete</a>
+              </button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+<div class="container d-flex justify-content-left">
+  <button class="btn btn-outline-info"><a href="{% url 'admins:add_category' %}">Add Genre</a></button>
+</div>
+
+{% endblock %}

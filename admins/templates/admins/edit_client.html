@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!--== Start My Account Wrapper ==-->
+    <section class="my-account-area">
+      <div class="container pt--0 pb--0">
+        <div class="row">
+        <div class="col-lg-12">
+          <div class="myaccount-page-wrapper">
+            <div class="row">
+              <div class="col-lg-12 col-md-8">
+                <div class="tab-content" id="nav-tabContent">                  
+                  <div class="tab-pane fade show active" id="account-info" role="tabpanel" aria-labelledby="account-info-tab">
+                    <div class="myaccount-content">
+                      <h3>Client Details</h3>
+                      <div class="account-details-form">
+                        <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="single-input-item">
+                                <label for="first-name" class="required">First Name</label>
+                                {{form.first_name}}
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="single-input-item">
+                                <label for="last-name" class="required">Last Name</label>
+                                {{form.last_name}}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="single-input-item">
+                            <label for="display-name" class="required">Username</label>
+                            {{form.username}}
+                          </div>
+                          <div class="single-input-item">
+                            <label for="email" class="required">Email Addres</label>
+                            {{form.email}}
+                          </div>
+                          <div class="single-input-item">
+                            <label for="email" class="required">Phone Number</label>
+                            {{form.phone_number}}
+                          </div>
+                          <div class="single-input-item">
+                            <label for="address" class="required">Address</label>
+                            {{form.address}}
+                          </div>
+                          <div class="single-input-item">
+                            <label for="email" class="">Profile Image</label>
+                            {{form.image}}
+                          </div>
+                          {% if user.user_role == 'admin' %}
+                          <div class="single-input-item">
+                            <label for="email" class="">User Role</label>
+                            {{form.user_role}}
+                          </div>
+                          {% endif %}
+                          <!-- <fieldset>
+                            <legend>Password change</legend>
+                            <div class="single-input-item">
+                              <label for="current-pwd" class="required">Current Password</label>
+                              <input type="password" id="current-pwd" />
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <div class="single-input-item">
+                                  <label for="new-pwd" class="required">New Password</label>
+                                  <input type="password" id="new-pwd" />
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="single-input-item">
+                                  <label for="confirm-pwd" class="required">Confirm Password</label>
+                                  <input type="password" id="confirm-pwd" />
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset> -->
+                          <div class="single-input-item">
+                            <button class="check-btn sqr-btn" type="submit">Save Changes</button>
+                          </div> 
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <!--== End My Account Wrapper ==-->
+  </main>
+{% endblock %}

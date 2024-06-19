@@ -1,0 +1,327 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="main-content">
+    <!--== Start Hero Area Wrapper ==-->
+    <section class="home-slider-area">
+      <div class="swiper-container home-slider-container default-slider-container">
+        <div class="swiper-wrapper home-slider-wrapper slider-default">
+          <div class="swiper-slide">
+            <div class="slider-content-area slider-content-area-two" data-bg-img="{% static 'assets/img/photos/bg4.jpg' %}">
+              <div class="container">
+                <div class="slider-container">
+                  <div class="row justify-content-between align-items-center">
+                    <div class="col-lg-5">
+                      <div class="slider-content">
+                        <div class="content">
+                          <div class="title-box">
+                            <h2 class="title"><span class="font-weight-400">Exclusive<br> </span>New Books</h2>
+                          </div>
+                          <div class="btn-box">
+                            <a class="btn-slider" href="{% url 'clients:store' %}">Shop Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slider-content-area slider-content-area-two" data-bg-img="{% static 'assets/img/photos/bg4.jpg' %}">
+              <div class="container">
+                <div class="slider-container">
+                  <div class="row justify-content-between align-items-center">
+                    <div class="col-lg-5">
+                      <div class="slider-content">
+                        <div class="content">
+                          <div class="title-box">
+                            <h2 class="title"><span class="font-weight-400">Exclusive<br> </span>New Books</h2>
+                          </div>
+                          <div class="btn-box">
+                            <a class="btn-slider" href="{% url 'clients:store' %}">Shop Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!--== Add Swiper Arrows ==-->
+        <div class="swiper-btn-wrap">
+          <div class="swiper-btn-prev">
+            <i class="pe-7s-angle-left"></i>
+          </div>
+          <div class="swiper-btn-next">
+            <i class="pe-7s-angle-right"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Hero Area Wrapper ==-->
+
+    <!--== Start Product Category Area Wrapper ==-->
+    <section class="product-area product-category-area">
+      <div class="container-fluid">
+        <div class="row">
+          {% for category in categories %}
+          <div class="col-sm-6 col-lg-4">
+            <!--== Start Product Category Item ==-->
+            <div class="product-category">
+              <div class="inner-content">
+                <div class="product-category-content">
+                  <div class="content">
+                    <h3 class="title"><a href="{% url 'clients:store' %}">{{category.name}}</a></h3>
+                  </div>
+                </div>
+                <div class="product-category-thumb" data-bg-img="{{category.image.url}}"></div>
+                <a class="banner-link-overlay" href="{% url 'clients:store' %}"></a>
+              </div>
+            </div>
+            <!--== End Product Category Item ==-->
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!--== End Product Category Area Wrapper ==-->
+
+
+    <!--== Start Divider Area Wrapper ==-->
+    <section class="parallax" data-speed="1.08" data-bg-img="{% static 'assets/img/photos/1920x500_bg.jpg' %}">
+      <div class="container pt--0 pb--0">
+        <div class="row divider-wrap divider-style3">
+          <div class="col-lg-6">
+            <div class="divider-thumb mousemove">
+              <div class="shape-one scene">
+                <span class="scene-layer" data-depth=".5">
+                  <img src="{% static 'assets/img/photos/1920x500.jpg' %}" width="377" height="243" alt="Image-HasTech">
+                </span>
+              </div>
+              <div class="shape-two mousemove-layer" data-speed="1"><img src="{% static 'assets/img/shape/4.webp' %}" width="532" height="326" alt="Image-HasTech"></div>
+              <div class="shape-three"><img src="{% static 'assets/img/shape/5.webp' %}" width="280" height="339" alt="Image-HasTech"></div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="divider-content">
+              <h2 class="title" style="color: black;">Online Book Store</h2>
+              <p class="desc" style="color: red;">Exlusive New Books & Romans</p>
+              <a class="btn-theme" href="{% url 'clients:store' %}">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Divider Area Wrapper ==-->
+
+    <!--== Start Feature Area Wrapper ==-->
+    <div class="feature-area">
+      <div class="container pb--0">
+        <div class="row">
+          <div class="col-12">
+            <div class="feature-content-box">
+              <div class="feature-box-wrap">
+                <div class="col-item">
+                  <div class="feature-icon-box">
+                    <div class="inner-content">
+                      <div class="icon-box">
+                        <img class="icon-img" src="{% static 'assets/img/icons/1.webp' %}" width="55" height="41" alt="Icon-HasTech">
+                      </div>
+                      <div class="content">
+                        <h5 class="title">Free Home Delivary</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-item">
+                  <div class="feature-icon-box">
+                    <div class="inner-content">
+                      <div class="icon-box">
+                        <img class="icon-img" src="{% static 'assets/img/icons/2.webp' %}" width="35" height="41" alt="Icon-HasTech">
+                      </div>
+                      <div class="content">
+                        <h5 class="title">Secure Payment</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-item">
+                  <div class="feature-icon-box">
+                    <div class="inner-content">
+                      <div class="icon-box">
+                        <img class="icon-img" src="{% static 'assets/img/icons/3.webp' %}" width="33" height="41" alt="Icon-HasTech">
+                      </div>
+                      <div class="content">
+                        <h5 class="title">Order Discount</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-item">
+                  <div class="feature-icon-box">
+                    <div class="inner-content">
+                      <div class="icon-box">
+                        <img class="icon-img" src="{% static 'assets/img/icons/4.webp' %}" width="43" height="41" alt="Icon-HasTech">
+                      </div>
+                      <div class="content">
+                        <h5 class="title">24 x 7 Online Support</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="shape-group-style1">
+                <div class="shape-group-one"><img src="{% static 'assets/img/shape/6.webp' %}" width="214" height="58" alt="Image-HasTech"></div>
+                <div class="shape-group-two"><img src="{% static 'assets/img/shape/7.webp' %}" width="136" height="88" alt="Image-HasTech"></div>
+                <div class="shape-group-three"><img src="{% static 'assets/img/shape/8.webp' %}" width="108" height="74" alt="Image-HasTech"></div>
+                <div class="shape-group-four"><img src="{% static 'assets/img/shape/9.webp' %}" width="239" height="69" alt="Image-HasTech"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== End Feature Area Wrapper ==-->
+
+    <!--== Start Product Area Wrapper ==-->
+<section class="product-area product-best-seller-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title text-center">
+          <h3 class="title">Best Sellers</h3>
+          <div class="desc">
+            <p>There are many variations of passages of Lorem Ipsum available</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="product-slider-wrap">
+          <div class="swiper-container product-slider-col4-container">
+            <div class="swiper-wrapper">
+              {% for bestseller in bestsellers %}
+              <div class="swiper-slide">
+                <!--== Start Product Item ==-->
+                <div class="product-item">
+                  <div class="inner-content">
+                    <div class="product-thumb">
+                      <a href="{% url 'clients:book_detail' bestseller.pk %}">
+                        <img src="{{bestseller.image.url}}" width="270" height="274" alt="Image-HasTech">
+                      </a>
+                      <div class="product-flag">
+                        <ul>
+                          <li class="discount">Bestseller</li>
+                        </ul>
+                      </div>
+                      <a class="banner-link-overlay" href="{% url 'clients:book_detail' bestseller.pk %}"></a>
+                    </div>
+                    <div class="product-info">
+                      <div class="category">
+                        <ul>
+                          <li><a href="{% url 'clients:book_detail' bestseller.pk %}">{{bestseller.author}}</a></li>
+                        </ul>
+                      </div>
+                      <h4 class="title"><a href="{% url 'clients:book_detail' bestseller.pk %}">{{bestseller.title}}</a></h4>
+                      <div class="prices">
+                        <span class="price">${{bestseller.price}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--== End Product Item ==-->
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <!--== Add Swiper Arrows ==-->
+          <div class="product-swiper-btn-wrap">
+            <div class="product-swiper-btn-prev">
+              <i class="fa fa-arrow-left"></i>
+            </div>
+            <div class="product-swiper-btn-next">
+              <i class="fa fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--== End Product Area Wrapper ==-->
+
+
+
+
+
+    <!--== Start Testimonial Area Wrapper ==-->
+    <section class="testimonial-area">
+      <div class="container pt--0">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title text-center">
+              <h3 class="title">Client Feedback</h3>
+              <div class="desc">
+                <p>There are many variations of passages of Lorem Ipsum available</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="swiper-container testimonial-slider-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <!--== Start Testimonial Item ==-->
+                  <div class="testimonial-item">
+                    <div class="testi-inner-content">
+                      <div class="testi-thumb">
+                        <img src="{% static 'assets/img/testimonial/1.webp' %}" width="90" height="90" alt="Image-HasTech">
+                      </div>
+                      <div class="testi-content">
+                        <p>Lorem ipsum dolor sit amel adipiscing elit, sed do eiusll tempor incididunt ut laborj et dolore magna.</p>
+                        <div class="testi-author">
+                          <div class="testi-info">
+                            <span class="name"><a href="about-us.html">Jaren Hammer</a></span>
+                          </div>
+                        </div>
+                        <div class="testi-quote"><img src="{% static 'assets/img/icons/quote1.webp' %}" width="62" height="44" alt="Image-HasTech"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--== End Testimonial Item ==-->
+                </div>
+                <div class="swiper-slide">
+                  <!--== Start Testimonial Item ==-->
+                  <div class="testimonial-item">
+                    <div class="testi-inner-content">
+                      <div class="testi-thumb">
+                        <img src="{% static 'assets/img/testimonial/2.webp' %}" width="90" height="90" alt="Image-HasTech">
+                      </div>
+                      <div class="testi-content">
+                        <p>Lorem ipsum dolor sit amel adipiscing elit, sed do eiusll tempor incididunt ut laborj et dolore magna.</p>
+                        <div class="testi-author">
+                          <div class="testi-info">
+                            <span class="name"><a href="about-us.html">Dorian Cordova</a></span>
+                          </div>
+                        </div>
+                        <div class="testi-quote"><img src="{% static 'assets/img/icons/quote1.webp' %}" width="62" height="44" alt="Image-HasTech"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--== End Testimonial Item ==-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End Testimonial Area Wrapper ==-->
+  </main>  
+{% endblock %}

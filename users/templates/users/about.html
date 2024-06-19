@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="main-content">
+    <!--== Start Page Header Area Wrapper ==-->
+    <div class="page-header-area" data-bg-img="{% static 'assets/img/photos/bg4.jpg' %}">
+      <div class="container pt--0 pb--0">
+        <div class="row">
+          <div class="col-12">
+            <div class="page-header-content">
+              <h2 class="title" data-aos="fade-down" data-aos-duration="1000">About Us</h2>
+              <nav class="breadcrumb-area" data-aos="fade-down" data-aos-duration="1200">
+                <ul class="breadcrumb">
+                  <li><a href="{% url 'users:index' %}">Home</a></li>
+                  <li class="breadcrumb-sep">//</li>
+                  <li>About Us</li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--== End Page Header Area Wrapper ==-->
+
+    <!--== Start About Area Wrapper ==-->
+    <section class="about-area about-default-wrapper">
+      <div class="container">
+        <div class="about-item position-relative">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <div class="about-thumb">
+                <div class="shape-one scene">
+                  <span class="scene-layer" data-depth=".2">
+                    <img src="{% static 'assets/img/photos/1920x500.jpg' %}" width="570" height="368" alt="Image-HasTech">
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="about-content">
+                <h4 class="sub-title">Smart Life</h4>
+                <h3 class="title">With Good Books</h3>
+                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmol tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minivel quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidata non proident, sunt in culpa qui officia.</p>
+                <a class="btn-theme" href="contact.html">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--== End About Area Wrapper ==-->
+
+    <!--== Start Divider Area Wrapper ==-->
+    <section class="bg-color-f2 position-relative z-index-1">
+      <div class="container pt--0 pb--0">
+        <div class="row divider-wrap divider-style1">
+          <div class="col-lg-6">
+            <div class="divider-content" data-title="NEW">
+              <h4 class="sub-title">Saving 50%</h4>
+              <h2 class="title">All Online Store</h2>
+              <p class="desc">Offer Available All Shoes & Products</p>
+              <a class="btn-theme" href="shop.html">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-layer-wrap">
+        <div class="bg-layer-style z-index--1 parallax" data-speed="1.05" data-bg-img="{% static 'assets/img/my_books_bg.png' %}"></div>
+      </div>
+    </section>
+    <!--== End Divider Area Wrapper ==-->
+{% endblock %}
