@@ -33,7 +33,10 @@
                     <h3 class="main-title">{{book.title}}</h3>
                     <div class="prices">
                       <span class="price">${{book.price}}</span>
-                    </div>
+                    </div><br>
+                    <span>Author: {{book.author}}</span><br>
+                    <span>Category: {{book.category}}</span><br>
+                    <span>Genre: {{book.genre}}</span><br><br>
                     <div class="rating-box-wrap">
                       <div class="rating-box">
                         <i class="fa fa-star"></i>
@@ -45,7 +48,7 @@
                       <div class="review-status">
                         <a href="javascript:void(0)">(5 Customer Review)</a>
                       </div>
-                    </div>
+                    </div>                    
                     <p>{{book.description}}</p>
                     <div class="product-quick-action">
                       <form action="" method="post">
